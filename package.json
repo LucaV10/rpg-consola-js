@@ -1,0 +1,9 @@
+{
+  "name": "rpg-consola",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
