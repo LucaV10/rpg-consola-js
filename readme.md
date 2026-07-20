@@ -31,3 +31,44 @@ Para poder jugar a este juego en tu computadora, necesitas tener instalado:
 * [Node.js](https://nodejs.org/es/) (Versión 14 o superior recomendada).
 
 ---
+
+```mermaid
+classDiagram
+    class Personajes {
+        -nombre: string
+        -hp: number
+        -hpActual: number
+        -ataque: number
+        +atacar(objetivo)
+        +recibirDaño(cantidadDaño)
+        +estaVivo() boolean
+    }
+
+    class Luchadores {
+        -defensa: number
+        -energiaMax: number
+        -energiaActual: number
+        +recibirDaño(cantidadDaño)
+        +lanzarHabilidad(habilidad, objetivo)
+    }
+
+    class Magos {
+        -manaMax: number
+        -manaActual: number
+        +lanzarHabilidad(habilidad, objetivo)
+    }
+
+    class Habilidades {
+        -nombre: string
+        -dañoBase: number
+        -costo: number
+    }
+
+%% Las flechas indican herencia (extends)
+    Personajes <|-- Luchadores
+    Personajes <|-- Magos
+
+    %% Relación de asociación (usa)
+    Luchadores --> Habilidades : usa
+    Magos --> Habilidades : usa
+    ```
